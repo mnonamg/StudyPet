@@ -152,7 +152,7 @@ var TXT={
     nm:"Nama ", nm_p:"Contoh: Aiman", ty:"Peringkat Pendidikan", ty_r:"Sekolah Rendah", ty_m:"Sekolah Menengah",
     l_r:"Tahun berapakah anda?", l_m:"Tingkatan berapakah anda?", lv_r:"Tahun ", lv_m:"Tingkatan ",
     sb_t:"Subjek Pilihan Anda", sb_s:"Sila pilih subjek anda. Jika tiada dalam senarai, anda boleh menambahnya di bawah.", sb_p:"Tambah subjek lain", add:"Tambah",
-    lv_t:"Tahap Penguasaan & Sasaran", lv_s:"Subjek yang memerlukan lebih perhatian akan diberikan slot ulangkaji yang lebih.", w:"Lemah", a:"Sederhana", s:"Kuat", hr_q:"Berapakah sasaran tempoh ulangkaji harian anda?", hr:"jam",
+    lv_t:"Tahap Penguasaan & Sasaran", lv_s:"Subjek yang memerlukan lebih perhatian akan diberikan slot ulangkaji yang lebih.", lw:"Lemah", la:"Sederhana", ls:"Kuat", hr_q:"Berapakah sasaran tempoh ulangkaji harian anda?", hr:"jam",
     ex_t:"Tarikh Peperiksaan", dt:"Tarikh", dt_s:"Tarikh ini adalah anggaran. Sila rujuk takwim rasmi sekolah anda.",
     bk:"Kembali", nx:"Seterusnya", gn:"Jana Jadual",
     e_n:"Sila masukkan nama dan pilih peringkat pendidikan anda.", e_l:"Sila pilih tahun atau tingkatan anda.", e_s:"Sila pilih sekurang-kurangnya satu subjek.", e_x:"Sila tetapkan tarikh peperiksaan anda.", d_gn:"Selesai! Jadual pembelajaran anda sedia untuk digunakan 🎉",
@@ -179,7 +179,7 @@ var TXT={
     nm:"First Name ", nm_p:"Example: Aiman", ty:"Education Level", ty_r:"Primary School", ty_m:"Secondary School",
     l_r:"Current Year?", l_m:"Current Form?", lv_r:"Year ", lv_m:"Form ",
     sb_t:"Select Your Subjects", sb_s:"Tap to select. If your subject is not listed, please add it below.", sb_p:"Add a custom subject", add:"Add",
-    lv_t:"Proficiency & Commitment", lv_s:"Subjects marked as 'Needs Work' will be prioritized in your schedule.", w:"Needs Work", a:"Average", s:"Excellent", hr_q:"What is your daily study goal?", hr:"hours",
+    lv_t:"Proficiency & Commitment", lv_s:"Subjects marked as 'Needs Work' will be prioritized in your schedule.", lw:"Needs Work", la:"Average", ls:"Excellent", hr_q:"What is your daily study goal?", hr:"hours",
     ex_t:"Target Examination", dt:"Target Date", dt_s:"This is an estimated date. Please verify with your school's official academic calendar.",
     bk:"Back", nx:"Next", gn:"Generate Schedule",
     e_n:"Please provide your name and select an education level.", e_l:"Please select your current academic year or form.", e_s:"Please select at least one subject to proceed.", e_x:"Please set your target examination date.", d_gn:"Success! Your personalized study schedule is ready 🎉",
@@ -310,7 +310,7 @@ function rOb(){
   if(s==0)h+='<h2>'+tt('ob_w')+'</h2><div class="m">'+tt('ob_sub')+'</div><div class="phr"><button class="av" data-a="pic" aria-label="'+tt('p_alt')+'">'+(o.photo?'<img src="'+o.photo+'" alt="">':"📷")+'</button><div class="m">'+tt('p_alt')+'</div></div><label class="m" for="nm">'+tt('nm')+'</label><input id="nm" class="in" maxlength="24" placeholder="'+tt('nm_p')+'" value="'+esc(o.name)+'"><label class="m">'+tt('ty')+'</label><div class="cw">'+chip(tt('ty_r'),o.type=="r","ty","r")+chip(tt('ty_m'),o.type=="m","ty","m")+'</div>';
   else if(s==1){var r=o.type=="r";h+='<h2>'+(r?tt('l_r'):tt('l_m'))+'</h2><div class="cw">';for(i=1;i<=(r?6:5);i++)h+=chip((r?tt('lv_r'):tt('lv_m'))+i,o.lvl==i,"lv",i);h+='</div>'}
   else if(s==2){var pr=pre();h+='<h2>'+tt('sb_t')+'</h2><div class="m">'+tt('sb_s')+'</div><div class="cw">';pr.forEach(function(n){h+=chip(n,has(n),"sub",n)});o.subs.forEach(function(x){if(pr.indexOf(x.n)<0)h+=chip(x.n,true,"sub",x.n)});h+='</div><div class="add"><input id="ns" class="in" maxlength="30" placeholder="'+tt('sb_p')+'"><button class="g" data-a="addsub">'+tt('add')+'</button></div>'}
-  else if(s==3){h+='<h2>'+tt('lv_t')+'</h2><div class="m">'+tt('lv_s')+'</div>';o.subs.forEach(function(x,j){h+='<div class="card" style="margin:0"><div class="t">'+emo(x.n)+" "+esc(x.n)+'</div><div class="cw" style="margin-top:6px">'+[tt('w'),tt('a'),tt('s')].map(function(t,q){return '<button class="oc'+(x.l==q?" on":"")+'" data-a="lvl" data-i="'+j+'" data-v="'+q+'">'+t+'</button>'}).join("")+'</div></div>'});h+='<label class="m">'+tt('hr_q')+'</label><div class="cw">'+[1,2,3,4].map(function(q){return chip(q+" "+tt('hr'),o.hrs==q,"hr",q)}).join("")+'</div>'}
+  else if(s==3){h+='<h2>'+tt('lv_t')+'</h2><div class="m">'+tt('lv_s')+'</div>';o.subs.forEach(function(x,j){h+='<div class="card" style="margin:0"><div class="t">'+emo(x.n)+" "+esc(x.n)+'</div><div class="cw" style="margin-top:6px">'+[tt('lw'),tt('la'),tt('ls')].map(function(t,q){return '<button class="oc'+(x.l==q?" on":"")+'" data-a="lvl" data-i="'+j+'" data-v="'+q+'">'+t+'</button>'}).join("")+'</div></div>'});h+='<label class="m">'+tt('hr_q')+'</label><div class="cw">'+[1,2,3,4].map(function(q){return chip(q+" "+tt('hr'),o.hrs==q,"hr",q)}).join("")+'</div>'}
   else h+='<h2>'+tt('ex_t')+'</h2><div class="cw">'+ld('exams')[o.type].map(function(t){return chip(t,o.ex==t,"ex",t)}).join("")+'</div><label class="m" for="dt">'+tt('dt')+'</label><input id="dt" type="date" class="in" value="'+o.date+'"><div class="m">'+tt('dt_s')+'</div>';
   return h+'<div class="obf">'+(s>0?'<button class="g" data-a="back">'+tt('bk')+'</button>':"")+'<button class="p" data-a="next">'+(s==4?tt('gn'):tt('nx'))+'</button></div></div>'}
 function keep(){var o=ui.ob;if($("nm"))o.name=$("nm").value;if($("dt"))o.date=$("dt").value}
@@ -349,7 +349,7 @@ else if(a=="ask"){finish(v);return}
 else if(a=="food"){var f=ld('foods').filter(function(x){return x.id==v})[0];if(S.xp>=f.c){S.xp-=f.c;petTick();S.pet.fed=Math.min(100,S.pet.fed+f.fed);S.pet.joy=Math.min(100,S.pet.joy+f.joy);save();pop(tt('py')+f.e)}}
 else if(a=="gear"){var g=ld('gear').filter(function(x){return x.id==v})[0];if(S.xp>=g.c){S.xp-=g.c;S.pet.own.push(v);S.pet.worn=v;save();pop(tt('pw')+g.n+" "+g.e)}}
 else if(a=="wear"){S.pet.worn=S.pet.worn==v?"":v;save()}
-else if(a=="open"){ui.open=ui.open==("s"+v)?null:"s"+v}
+else if(a=="open"){ui.open=ui.open==v?null:v}ui.open=ui.open==("s"+v)?null:"s"+v}
 else if(a=="topic"){var q=S.topics[b.dataset.k][+b.dataset.j];q[1]=(q[1]+1)%3;if(q[1]==2)q[2]=Date.now();save()}
 else if(a=="addtopic"){var i=b.previousElementSibling,n=i.value.trim();if(n){S.topics[v].push([n,0,0]);save()}}
 else if(a=="reset"){if(confirm(tt('cr'))){try{localStorage.removeItem(CFG.key)}catch(x){}S=null;ui.ob={st:-1,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""}}}
