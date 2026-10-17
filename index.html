@@ -330,7 +330,7 @@ ui.tab="home";save();render();pop(tt('d_gn'))}
 
 /* ============ EVENT ============ */
 document.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a,v=b.dataset.v,o=ui.ob;
-if(a=="lang"){ui.lang=ui.lang=="ms"?"en":"ms";try{localStorage.setItem(CFG.key+"_lang",ui.lang)}catch(x){}render();return}
+if(a=="lang"){keep();ui.lang=ui.lang=="ms"?"en":"ms";try{localStorage.setItem(CFG.key+"_lang",ui.lang)}catch(x){}render();return}
 if(a=="getstarted"){o.st=0;render();return}
 if(!S){keep();
  if(a=="ty"){o.type=v;o.lvl=0;o.subs=[];o.pre=0}
