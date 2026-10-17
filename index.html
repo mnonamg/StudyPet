@@ -349,7 +349,7 @@ else if(a=="ask"){finish(v);return}
 else if(a=="food"){var f=ld('foods').filter(function(x){return x.id==v})[0];if(S.xp>=f.c){S.xp-=f.c;petTick();S.pet.fed=Math.min(100,S.pet.fed+f.fed);S.pet.joy=Math.min(100,S.pet.joy+f.joy);save();pop(tt('py')+f.e)}}
 else if(a=="gear"){var g=ld('gear').filter(function(x){return x.id==v})[0];if(S.xp>=g.c){S.xp-=g.c;S.pet.own.push(v);S.pet.worn=v;save();pop(tt('pw')+g.n+" "+g.e)}}
 else if(a=="wear"){S.pet.worn=S.pet.worn==v?"":v;save()}
-else if(a=="open"){ui.open=ui.open==v?null:v}ui.open=ui.open==("s"+v)?null:"s"+v}
+else if(a=="open"){ui.open=ui.open==v?null:v}
 else if(a=="topic"){var q=S.topics[b.dataset.k][+b.dataset.j];q[1]=(q[1]+1)%3;if(q[1]==2)q[2]=Date.now();save()}
 else if(a=="addtopic"){var i=b.previousElementSibling,n=i.value.trim();if(n){S.topics[v].push([n,0,0]);save()}}
 else if(a=="reset"){if(confirm(tt('cr'))){try{localStorage.removeItem(CFG.key)}catch(x){}S=null;ui.ob={st:-1,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""}}}
