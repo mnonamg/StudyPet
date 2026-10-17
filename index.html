@@ -88,7 +88,7 @@ nav button span{display:block;font-size:20px}nav button.on{color:var(--brand)}
 .pop{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:var(--ink);color:var(--phone);padding:10px 18px;border-radius:99px;font-weight:800;font-size:14px;z-index:9;max-width:90vw;text-align:center}
 @media (prefers-reduced-motion:reduce){.pet.bob{animation:none}}
 
-/* ===== LANDING / SPLASH SCREEN ===== */
+
 /* ===== LANDING / SPLASH SCREEN ===== */
 .splash{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:90px 24px 70px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#262c7a 0%,#161a4a 48%,#0e1130 100%)}
 .splash::before,.splash::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none}
@@ -174,7 +174,7 @@ var TXT={
     h:"Utama", w:"Jadual", p:"Peliharaan", pg:"Kemajuan", prof:"Jadual Pembelajaran "
   },
   en:{
-    btn_start:"LET'S GET STARTED",
+    btn_start:"LET’S GET STARTED"
     ob_w:"Welcome 👋", ob_sub:"Please complete your profile. This will take less than a minute.", p_alt:"Profile picture (Optional).",
     nm:"First Name ", nm_p:"Example: Aiman", ty:"Education Level", ty_r:"Primary School", ty_m:"Secondary School",
     l_r:"Current Year?", l_m:"Current Form?", lv_r:"Year ", lv_m:"Form ",
@@ -292,23 +292,15 @@ function chip(t,on,a,v){return '<button class="oc'+(on?" on":"")+'" data-a="'+a+
 /* ===== SPLASH SCREEN & ONBOARDING ===== */
 function rSplash(){
   var l_btn='<button class="lang-toggle-splash" data-a="lang">'+(ui.lang=="ms"?"🇲🇾 BM":"🇬🇧 EN")+'</button>';
-  return '<div class="splash">' + l_btn +
-    '<div class="brand-group">' +
-      '<div class="mascots">' +
-        '<span class="mascot-decor m-paw1">🐾</span>' +
-        '<span>🐱</span>' +
-        '<span class="mascot-decor m-heart">❤️</span>' +
-        '<span>🐶</span>' +
-        '<span class="mascot-decor m-books">📚</span>' +
-        '<span class="mascot-decor m-paw2">🐾</span>' +
-        '<span class="mascot-decor m-star">✨</span>' +
-      '</div>' +
-      '<h1 class="logo-text"><span>studypet</span></h1>' +
-      '<div class="logo-desc">Focus • Levels • Companions</div>' +
-    '</div>' +
-    '<button class="btn-started" data-a="getstarted">' + tt('btn_start') + '</button>' +
-  '</div>';
-}
+  return '<div class="splash">'+l_btn+
+    '<span class="sp" style="top:16%;left:12%">✦</span><span class="sp" style="top:24%;right:10%;animation-delay:1s">✦</span><span class="sp" style="top:44%;left:20%;animation-delay:2s;font-size:10px">✦</span><span class="sp" style="top:50%;right:16%;animation-delay:1.5s;font-size:10px">✦</span>'+
+    '<div class="brand-group">'+
+      '<img class="logo-img" src="logo.png" alt="StudyPet" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+      '<div class="logo-fallback"><div class="mascots"><span>🐱</span><span>🐶</span></div><div class="logo-text"><span>studypet</span></div></div>'+
+      '<div class="logo-desc">Focus • Levels • Companions</div>'+
+    '</div>'+
+    '<button class="btn-started" data-a="getstarted">'+tt('btn_start')+'</button>'+
+  '</div>'}
 
 function rOb(){
   var o=ui.ob,s=o.st,i;
