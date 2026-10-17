@@ -17,16 +17,15 @@
 <link rel="icon" type="image/png" href="logo.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Study Planner</title>
 <style>
 /* ===== WARNA & TEMA ===== */
-:root{--bg:#e9edfb;--card:#fff;--ink:#1b2250;--mute:#6b7299;--line:#dde2f5;--brand:#3b4bd8;--brand2:#e6e9ff;--ok:#12a36b;--phone:#f6f7ff}
+:root{--bg:#e9edfb;--card:#fff;--ink:#1b2250;--mute:#6b7299;--line:#dde2f5;--brand:#3b4bd8;--brand2:#e6e9ff;--ok:#12a36b;--phone:#12163b}
 @media (prefers-color-scheme:dark){:root{--bg:#0d1030;--card:#1a1f4a;--ink:#eef0ff;--mute:#9aa2d6;--line:#2b3270;--brand:#7c8bff;--brand2:#262c66;--phone:#12163b}}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font-family:"Nunito","Segoe UI",system-ui,sans-serif;display:flex;justify-content:center;padding:16px 10px;padding-top:max(16px,env(safe-area-inset-top))}
-.phone{width:100%;max-width:400px;min-height:720px;background:var(--phone);border-radius:28px;border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(30,40,120,.18);position:relative}
+.phone{width:100%;max-width:400px;min-height:720px;background:var(--phone);border-radius:28px;border:4px solid #7c4dff;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(30,40,120,.18);position:relative}
 .top{padding:16px 18px 4px;display:flex;justify-content:space-between;align-items:center}
-.top h1{font-size:19px;margin:0;font-weight:800}
+.top h1{font-size:19px;margin:0;font-weight:800;color:var(--ink)}
 .chip{background:var(--brand2);color:var(--brand);border-radius:99px;padding:5px 11px;font-weight:800;font-size:13px}
 main{flex:1;padding:6px 18px 16px;overflow-y:auto}
 h2{font-size:15px;margin:18px 0 8px;font-weight:800}
@@ -36,7 +35,7 @@ h2{font-size:15px;margin:18px 0 8px;font-weight:800}
 .hero b{font-size:44px;line-height:1}.hero small{display:block;opacity:.88;margin-top:4px;font-size:13px}
 .ring{position:relative;width:78px;height:78px}.ring svg{transform:rotate(-90deg)}
 .ring span{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:15px}
-.msg{background:var(--brand2);border-radius:14px;padding:11px 14px;font-size:13.5px;line-height:1.45;margin-top:10px}
+.msg{background:var(--brand2);border-radius:14px;padding:11px 14px;font-size:13.5px;line-height:1.45;margin-top:10px;color:var(--ink)}
 .task{border-left:5px solid var(--c)}.task.done{opacity:.55}.task.done .t{text-decoration:line-through}
 .row{display:flex;gap:10px;align-items:center;justify-content:space-between}
 button{font-family:inherit;cursor:pointer}
@@ -60,9 +59,11 @@ nav button{flex:1;border:0;background:none;padding:9px 0 12px;color:var(--mute);
 nav button span{display:block;font-size:20px}nav button.on{color:var(--brand)}
 .av{width:46px;height:46px;border-radius:50%;border:2px solid var(--brand);background:var(--brand2);color:var(--brand);font-weight:800;font-size:18px;display:grid;place-items:center;overflow:hidden;padding:0;flex:none}
 .av img{width:100%;height:100%;object-fit:cover}.prof{display:flex;gap:12px;align-items:center;margin:2px 0 12px}
-.obin{padding:22px 20px;flex:1;display:flex;flex-direction:column;gap:9px}
+
+/* onboarding */
+.obin{padding:22px 20px;flex:1;display:flex;flex-direction:column;gap:9px;color:#fff}
 .dots{display:flex;gap:6px;margin-bottom:8px}.dots i{height:5px;flex:1;border-radius:5px;background:var(--line)}.dots i.on{background:var(--brand)}
-.obin h2{font-size:22px;margin:4px 0 0}
+.obin h2{font-size:22px;margin:4px 0 0;color:#fff}
 .in{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font:inherit;font-size:15px}
 .cw{display:flex;flex-wrap:wrap;gap:8px}
 .oc{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:9px 14px;font-weight:700;font-size:13.5px}
@@ -70,9 +71,13 @@ nav button span{display:block;font-size:20px}nav button.on{color:var(--brand)}
 .obf{display:flex;gap:10px;margin-top:auto;padding-top:16px}.obf .p{flex:1}
 .add{display:flex;gap:8px;margin-top:6px}.add .in{padding:9px 10px;font-size:13.5px}
 .phr{display:flex;gap:12px;align-items:center}.phr .av{width:64px;height:64px;font-size:24px}
-.tm{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center}
+
+/* timer */
+.tm{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#fff}
 .tm .big{font-size:76px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-1px}
 .tm .btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+/* pet */
 .stage{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 10px 14px;text-align:center}
 .pet{position:relative;display:inline-block;font-size:92px;line-height:1.1}
 .pet.sad{filter:grayscale(.6)}.pet.bob{animation:bob 2.4s ease-in-out infinite}
@@ -82,6 +87,24 @@ nav button span{display:block;font-size:20px}nav button.on{color:var(--brand)}
 .shop{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shop .card{margin:0;text-align:center}.shop .e{font-size:30px}
 .pop{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:var(--ink);color:var(--phone);padding:10px 18px;border-radius:99px;font-weight:800;font-size:14px;z-index:9;max-width:90vw;text-align:center}
 @media (prefers-reduced-motion:reduce){.pet.bob{animation:none}}
+
+/* ===== LANDING / SPLASH SCREEN ===== */
+.splash{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:60px 24px 80px;text-align:center;background:#12163b}
+.brand-group{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:40px}
+.mascots{display:flex;align-items:flex-end;justify-content:center;gap:10px;position:relative}
+.mascots span{font-size:68px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15))}
+.mascot-decor{position:absolute;font-size:18px}
+.m-heart{top:-12px;left:45%}
+.m-star{top:15px;right:-15px}
+.m-paw1{bottom:5px;left:-25px}
+.m-paw2{bottom:15px;right:-28px}
+.m-books{font-size:32px !important;margin-bottom:10px}
+.logo-text{font-size:52px;font-weight:900;color:#fff;font-family:"Nunito", sans-serif;letter-spacing:-1.5px;text-shadow:0 3px 0 #7c4dff, 0 6px 0 rgba(0,0,0,0.2);margin:0;position:relative}
+.logo-text span{display:inline-block;transform:rotate(-3deg)}
+.logo-desc{font-size:14px;color:#9aa2d6;font-weight:700;margin-top:-5px;letter-spacing:1px;text-transform:uppercase}
+.btn-started{background:#d1d5db;color:#000;border:4px solid #000;border-radius:40px;padding:22px 48px;font-size:18px;font-weight:900;width:90%;max-width:320px;box-shadow:0 6px 0 #000;transition:all 0.1s ease;cursor:pointer;letter-spacing:0.5px}
+.btn-started:active{transform:translateY(4px);box-shadow:0 2px 0 #000}
+.lang-toggle-splash{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;border-radius:99px;padding:6px 14px;font-size:12px;font-weight:800;cursor:pointer;position:absolute;top:20px;right:20px;z-index:10}
 </style>
 </head>
 <body>
@@ -97,21 +120,21 @@ var CFG={
   fedLossPerHour:3, joyLossPerHour:2, sessionJoy:25
 };
 
-/* ============ KAMUS DWI-BAHASA ============ */
+/* ============ KAMUS DWI-BAHASA (PROFESIONAL) ============ */
 var langData = {
   ms: {
     presets:{r:["Bahasa Melayu","Bahasa Inggeris","Matematik","Sains","Pendidikan Islam","Pendidikan Moral","Sejarah","Bahasa Cina","Bahasa Tamil","Pendidikan Jasmani","Pendidikan Seni","Reka Bentuk dan Teknologi"],l:["Bahasa Melayu","Bahasa Inggeris","Matematik","Sains","Sejarah","Geografi","Pendidikan Islam","Pendidikan Moral","Reka Bentuk dan Teknologi","Bahasa Cina","Bahasa Tamil","Bahasa Arab"],u:["Bahasa Melayu","Bahasa Inggeris","Matematik","Sejarah","Pendidikan Islam","Pendidikan Moral","Sains","Fizik","Kimia","Biologi","Matematik Tambahan","Prinsip Perakaunan","Ekonomi","Geografi","Kesusasteraan","Bahasa Arab","Bahasa Cina"]},
     core:["Bahasa Melayu","Bahasa Inggeris","Matematik"],
-    exams:{r:["Peperiksaan akhir tahun","Peperiksaan pertengahan tahun","Ujian bulanan"],m:["SPM","Peperiksaan akhir tahun","Peperiksaan pertengahan tahun","Ujian bulanan"]},
-    levels:["Pelajar Baru","Pelajar Rajin","Pelajar Hebat","Pakar Subjek"],
+    exams:{r:["Peperiksaan Akhir Tahun","Peperiksaan Pertengahan Tahun","Ujian Bulanan"],m:["SPM","Peperiksaan Akhir Tahun","Peperiksaan Pertengahan Tahun","Ujian Bulanan"]},
+    levels:["Pelajar Baharu","Pelajar Dedikasi","Pelajar Cemerlang","Pakar Subjek"],
     foods:[{id:"apple",e:"🍎",n:"Epal",c:5,fed:20,joy:0},{id:"burger",e:"🍔",n:"Burger",c:15,fed:50,joy:0},{id:"cake",e:"🍰",n:"Kek",c:25,fed:30,joy:30}],
-    gear:[{id:"hat",e:"🎩",n:"Topi",c:60},{id:"glasses",e:"👓",n:"Cermin mata",c:80},{id:"bow",e:"🎀",n:"Reben",c:60},{id:"crown",e:"👑",n:"Mahkota",c:200}]
+    gear:[{id:"hat",e:"🎩",n:"Topi",c:60},{id:"glasses",e:"👓",n:"Cermin Mata",c:80},{id:"bow",e:"🎀",n:"Reben",c:60},{id:"crown",e:"👑",n:"Mahkota",c:200}]
   },
   en: {
     presets:{r:["Malay","English","Mathematics","Science","Islamic Education","Moral Education","History","Chinese","Tamil","Physical Education","Art","Design and Technology"],l:["Malay","English","Mathematics","Science","History","Geography","Islamic Education","Moral Education","Design and Technology","Chinese","Tamil","Arabic"],u:["Malay","English","Mathematics","History","Islamic Education","Moral Education","Science","Physics","Chemistry","Biology","Additional Mathematics","Principles of Accounting","Economics","Geography","Literature","Arabic","Chinese"]},
     core:["Malay","English","Mathematics"],
-    exams:{r:["Final Year Exam","Mid-Year Exam","Monthly Test"],m:["SPM","Final Year Exam","Mid-Year Exam","Monthly Test"]},
-    levels:["New Student","Diligent Student","Great Student","Subject Expert"],
+    exams:{r:["Final Year Exam","Mid-Year Exam","Monthly Assessment"],m:["SPM","Final Year Exam","Mid-Year Exam","Monthly Assessment"]},
+    levels:["Novice Learner","Dedicated Student","Academic Achiever","Subject Expert"],
     foods:[{id:"apple",e:"🍎",n:"Apple",c:5,fed:20,joy:0},{id:"burger",e:"🍔",n:"Burger",c:15,fed:50,joy:0},{id:"cake",e:"🍰",n:"Cake",c:25,fed:30,joy:30}],
     gear:[{id:"hat",e:"🎩",n:"Hat",c:60},{id:"glasses",e:"👓",n:"Glasses",c:80},{id:"bow",e:"🎀",n:"Bow",c:60},{id:"crown",e:"👑",n:"Crown",c:200}]
   }
@@ -119,56 +142,58 @@ var langData = {
 
 var TXT={
   ms:{
-    ob_w:"Selamat datang 👋", ob_sub:"Isi sekali sahaja, kurang seminit.", p_alt:"Gambar profil (pilihan).",
-    nm:"Nama ", nm_p:"Contoh: Aiman", ty:"Jenis sekolah", ty_r:"Sekolah rendah", ty_m:"Sekolah menengah",
-    l_r:"Darjah berapa?", l_m:"Tingkatan berapa?", lv_r:"Darjah ", lv_m:"Tingkatan ",
-    sb_t:"Subjek yang kau ambil", sb_s:"Tekan untuk pilih. Subjek tak ada dalam senarai? Taip sendiri di bawah.", sb_p:"Nama subjek lain", add:"Tambah",
-    lv_t:"Tahap dan masa", lv_s:"Subjek lemah dapat slot lebih dalam jadual.", lw:"Lemah", la:"Sederhana", ls:"Kuat", hr_q:"Berapa jam boleh belajar sehari?", hr:"jam",
-    ex_t:"Tarikh peperiksaan", dt:"Tarikh", dt_s:"Tarikh diisi anggaran. Semak tarikh sebenar dengan sekolah.",
-    bk:"Kembali", nx:"Seterusnya", gn:"Jana jadual",
-    e_n:"Isi nama dan pilih jenis sekolah", e_l:"Pilih darjah atau tingkatan", e_s:"Pilih sekurang-kurangnya satu subjek", e_x:"Pilih jenis dan tarikh", d_gn:"Siap! Jadual dah dijana 🎉",
-    dl:"hari lagi ke", td:"Hari ini:", dn:"siap",
-    md:"Semua siap! Rehat dulu, {n} layak 🎉", ms:"Tekan Mula pada satu tugasan. Timer jalan, dan bila tamat kau jawab sama ada dah faham.",
-    ts:"Tugasan hari ini", rev:"Imbas semula: ", min:"min", dc:"Siap ✓", st:"Mula ▶", tk:"Dah buat tanpa timer (+5 XP)",
-    ws:"Agihan subjek untuk seminggu. Subjek lemah dapat slot lebih.", rd:"Hari rehat 😴",
-    lvl:"Level", msad:"Lapar 🥺 Bagi dia makan", mbor:"Bosan 😴 Jom study sesi pendek", mhap:"Ceria 😄",
-    ful:"Kenyang", joy:"Gembira", fd:"Beri makan", gr:"Hiasan", wr:"Pakai", uwr:"Tanggal",
-    pm:"Pet tak akan mati. Kalau lama tak study dia cuma lapar dan bosan, dan cepat ceria balik bila kau belajar.",
-    str:"streak", wk:"minggu ni", sh:"Subjek (tekan untuk buka topik)", mns:"minit belajar",
-    at:"Tambah topik baru", a14:"Aktiviti 14 hari", br:"Tukar profil / mula semula",
-    aq:"Sesi {m} minit. Topik ni dah faham?", as:"Jawapan kau tentukan status topik dan bila ia muncul semula.", anx:"Kurang 10 minit, jadi tiada XP.",
-    ay:"Dah faham", ah:"Separuh", an:"Belum",
-    tp:"Berhenti", tr:"Sambung", tst:"Tamat sekarang", tmn:"Minimum 10 minit untuk dapat XP.",
-    ptk:"+5 XP (tanpa timer, XP kecil)", pnx:"Sesi kurang 10 minit, tiada XP kali ni", px:"+{x} XP! Pet kau pun gembira 🎉", py:"Yum! ", pw:"Pet kau pakai ",
-    cr:"Padam semua data dan mula semula?", ei:"Pilih fail gambar", eio:"Gambar tak boleh dibuka",
-    day:["Aha","Isn","Sel","Rab","Kha","Jum","Sab"], stn:["Belum mula","Sedang ulang kaji","Dah kuasai"], ch:"Bab ",
-    h:"Hari ini", w:"Jadual", p:"Pet", pg:"Progres", prof:"Jadual belajar "
+    btn_start:"MULA SEKARANG",
+    ob_w:"Selamat Datang 👋", ob_sub:"Sila lengkapkan butiran ini. Ia hanya mengambil masa kurang dari seminit.", p_alt:"Gambar profil (Pilihan).",
+    nm:"Nama ", nm_p:"Contoh: Aiman", ty:"Peringkat Pendidikan", ty_r:"Sekolah Rendah", ty_m:"Sekolah Menengah",
+    l_r:"Tahun berapakah anda?", l_m:"Tingkatan berapakah anda?", lv_r:"Tahun ", lv_m:"Tingkatan ",
+    sb_t:"Subjek Pilihan Anda", sb_s:"Sila pilih subjek anda. Jika tiada dalam senarai, anda boleh menambahnya di bawah.", sb_p:"Tambah subjek lain", add:"Tambah",
+    lv_t:"Tahap Penguasaan & Sasaran", lv_s:"Subjek yang memerlukan lebih perhatian akan diberikan slot ulangkaji yang lebih.", w:"Lemah", a:"Sederhana", s:"Kuat", hr_q:"Berapakah sasaran tempoh ulangkaji harian anda?", hr:"jam",
+    ex_t:"Tarikh Peperiksaan", dt:"Tarikh", dt_s:"Tarikh ini adalah anggaran. Sila rujuk takwim rasmi sekolah anda.",
+    bk:"Kembali", nx:"Seterusnya", gn:"Jana Jadual",
+    e_n:"Sila masukkan nama dan pilih peringkat pendidikan anda.", e_l:"Sila pilih tahun atau tingkatan anda.", e_s:"Sila pilih sekurang-kurangnya satu subjek.", e_x:"Sila tetapkan tarikh peperiksaan anda.", d_gn:"Selesai! Jadual pembelajaran anda sedia untuk digunakan 🎉",
+    dl:"hari ke", td:"Hari ini:", dn:"selesai",
+    md:"Tahniah, {n}! Semua tugasan hari ini telah selesai. Sila berehat. 🎉", ms:"Tekan 'Mula' pada tugasan pilihan anda. Selepas pemasa tamat, tentukan tahap kefahaman anda bagi topik tersebut.",
+    ts:"Tugasan Hari Ini", rev:"Ulangkaji: ", min:"minit", dc:"Selesai ✓", st:"Mula ▶", tk:"Tandakan Selesai Tanpa Pemasa (+5 XP)",
+    ws:"Agihan jadual mingguan. Subjek yang lemah akan menerima keutamaan masa yang lebih.", rd:"Hari Rehat 😴",
+    lvl:"Tahap", msad:"Haiwan peliharaan anda lapar 🥺 Sila beri makanan.", mbor:"Haiwan peliharaan anda bosan 😴 Mari mulakan sesi ulangkaji.", mhap:"Ceria 😄",
+    ful:"Tahap Kekenyangan", joy:"Tahap Kegembiraan", fd:"Beri Makanan", gr:"Aksesori", wr:"Pakai", uwr:"Tanggalkan",
+    pm:"Haiwan peliharaan anda tidak akan mati, tetapi ia akan berasa lapar dan bosan jika diabaikan. Lakukan sesi ulangkaji untuk menceriakannya semula.",
+    str:"rentetan (streak)", wk:"jam minggu ini", sh:"Senarai Subjek (Tekan untuk lihat topik)", mns:"minit telah dipelajari",
+    at:"Tambah topik baharu", a14:"Aktiviti 14 Hari Terkini", br:"Tetapan Semula Profil",
+    aq:"Sesi tamat ({m} minit). Adakah anda telah menguasai topik ini?", as:"Jawapan anda akan menentukan status topik ini dan kekerapannya muncul di dalam jadual.", anx:"Sesi kurang daripada 10 minit tidak melayakkan anda menerima XP.",
+    ay:"Telah Dikuasai", ah:"Sederhana", an:"Belum Menguasai",
+    tp:"Jeda", tr:"Sambung", tst:"Tamatkan Sesi", tmn:"Sesi minimum 10 minit diperlukan untuk meraih ganjaran XP.",
+    ptk:"+5 XP berjaya diraih (Sesi tanpa pemasa).", pnx:"Tiada ganjaran XP diberikan. Sesi terlalu singkat.", px:"+{x} XP! Haiwan peliharaan anda juga gembira 🎉", py:"Yummy! ", pw:"Haiwan peliharaan anda kini memakai ",
+    cr:"Adakah anda pasti untuk memadam semua rekod dan bermula semula?", ei:"Sila pilih format imej yang sah.", eio:"Gagal memuat naik imej.",
+    day:["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"], stn:["Belum Bermula","Sedang Ulangkaji","Telah Dikuasai"], ch:"Bab ",
+    h:"Utama", w:"Jadual", p:"Peliharaan", pg:"Kemajuan", prof:"Jadual Pembelajaran "
   },
   en:{
-    ob_w:"Welcome 👋", ob_sub:"Fill this out once, takes less than a minute.", p_alt:"Profile picture (optional).",
-    nm:"Name ", nm_p:"Example: Aiman", ty:"School type", ty_r:"Primary school", ty_m:"Secondary school",
-    l_r:"Which year?", l_m:"Which form?", lv_r:"Year ", lv_m:"Form ",
-    sb_t:"Subjects you're taking", sb_s:"Tap to select. Subject not listed? Type it below.", sb_p:"Other subject name", add:"Add",
-    lv_t:"Level and time", lv_s:"Weaker subjects get more slots in the schedule.", lw:"Weak", la:"Average", ls:"Strong", hr_q:"How many hours can you study a day?", hr:"hours",
-    ex_t:"Exam date", dt:"Date", dt_s:"Date is an estimate. Check the actual date with your school.",
-    bk:"Back", nx:"Next", gn:"Generate schedule",
-    e_n:"Fill in your name and select school type", e_l:"Select year or form", e_s:"Select at least one subject", e_x:"Select type and date", d_gn:"Done! Schedule generated 🎉",
-    dl:"days left to", td:"Today:", dn:"completed",
-    md:"All done! Take a rest, {n} 🎉", ms:"Press Start on a task. Timer runs, and when finished you answer if you understood.",
-    ts:"Today's Tasks", rev:"Review: ", min:"min", dc:"Done ✓", st:"Start ▶", tk:"Done without timer (+5 XP)",
-    ws:"Weekly subject distribution. Weaker subjects get more slots.", rd:"Rest day 😴",
-    lvl:"Level", msad:"Hungry 🥺 Feed it", mbor:"Bored 😴 Let's do a short study session", mhap:"Cheerful 😄",
-    ful:"Fullness", joy:"Happiness", fd:"Feed", gr:"Accessories", wr:"Wear", uwr:"Remove",
-    pm:"Your pet won't die. If you don't study for a while, it just gets hungry and bored, and cheers up when you study.",
-    str:"streak", wk:"this week", sh:"Subjects (tap to open topics)", mns:"minutes studied",
-    at:"Add new topic", a14:"14-day Activity", br:"Change profile / restart",
-    aq:"Session {m} minutes. Did you understand this topic?", as:"Your answer determines the topic's status and when it will reappear.", anx:"Less than 10 minutes, so no XP.",
-    ay:"Understood", ah:"Partially", an:"Not yet",
-    tp:"Pause", tr:"Resume", tst:"End now", tmn:"Minimum 10 minutes to earn XP.",
-    ptk:"+5 XP (no timer, small XP)", pnx:"Session less than 10 minutes, no XP this time", px:"+{x} XP! Your pet is happy too 🎉", py:"Yum! ", pw:"Your pet is wearing ",
-    cr:"Delete all data and restart?", ei:"Select an image file", eio:"Image cannot be opened",
-    day:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], stn:["Not started","Reviewing","Mastered"], ch:"Chapter ",
-    h:"Today", w:"Schedule", p:"Pet", pg:"Progress", prof:"Study Planner "
+    btn_start:"LET'S GET STARTED",
+    ob_w:"Welcome 👋", ob_sub:"Please complete your profile. This will take less than a minute.", p_alt:"Profile picture (Optional).",
+    nm:"First Name ", nm_p:"Example: Aiman", ty:"Education Level", ty_r:"Primary School", ty_m:"Secondary School",
+    l_r:"Current Year?", l_m:"Current Form?", lv_r:"Year ", lv_m:"Form ",
+    sb_t:"Select Your Subjects", sb_s:"Tap to select. If your subject is not listed, please add it below.", sb_p:"Add a custom subject", add:"Add",
+    lv_t:"Proficiency & Commitment", lv_s:"Subjects marked as 'Needs Work' will be prioritized in your schedule.", w:"Needs Work", a:"Average", s:"Excellent", hr_q:"What is your daily study goal?", hr:"hours",
+    ex_t:"Target Examination", dt:"Target Date", dt_s:"This is an estimated date. Please verify with your school's official academic calendar.",
+    bk:"Back", nx:"Next", gn:"Generate Schedule",
+    e_n:"Please provide your name and select an education level.", e_l:"Please select your current academic year or form.", e_s:"Please select at least one subject to proceed.", e_x:"Please set your target examination date.", d_gn:"Success! Your personalized study schedule is ready 🎉",
+    dl:"days until", td:"Today:", dn:"completed",
+    md:"Outstanding work, {n}! All daily tasks are complete. Enjoy your rest. 🎉", ms:"Select 'Start' to begin a focus session. Once completed, you will be prompted to evaluate your understanding.",
+    ts:"Today's Tasks", rev:"Review: ", min:"mins", dc:"Completed ✓", st:"Start ▶", tk:"Mark as Done (No Timer, +5 XP)",
+    ws:"Weekly distribution. Priority is given to subjects requiring improvement.", rd:"Rest Day 😴",
+    lvl:"Level", msad:"Your pet is hungry 🥺 Treat it to some food.", mbor:"Your pet is bored 😴 Let's start a quick study session.", mhap:"Joyful 😄",
+    ful:"Fullness Level", joy:"Happiness Level", fd:"Pantry", gr:"Accessories", wr:"Equip", uwr:"Unequip",
+    pm:"Your pet is immortal, but it requires your study sessions to stay fed and happy. Keep learning to maintain its mood!",
+    str:"day streak", wk:"hours this week", sh:"Your Subjects (Tap to expand topics)", mns:"minutes studied",
+    at:"Add a new topic", a14:"Recent 14-Day Activity", br:"Reset Profile",
+    aq:"Session complete ({m} minutes). Have you mastered this topic?", as:"Your assessment helps the system optimize your future review schedule.", anx:"Sessions under 10 minutes do not qualify for XP rewards.",
+    ay:"Mastered", ah:"Still Reviewing", an:"Needs Work",
+    tp:"Pause", tr:"Resume", tst:"End Session", tmn:"A minimum of 10 focused minutes is required to earn XP.",
+    ptk:"+5 XP credited (Manual completion).", pnx:"No XP awarded. The session was too brief.", px:"+{x} XP earned! Your pet is delighted 🎉", py:"Yummy! ", pw:"Your pet is now wearing ",
+    cr:"Are you sure you want to permanently delete all data and start over?", ei:"Please select a valid image file.", eio:"Failed to process the image.",
+    day:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], stn:["Not Started","In Progress","Mastered"], ch:"Chapter ",
+    h:"Dashboard", w:"Schedule", p:"My Pet", pg:"Insights", prof:"Study Plan for "
   }
 };
 
@@ -182,7 +207,7 @@ function pop(t){var p=document.createElement("div");p.className="pop";p.textCont
 function tt(k){return TXT[ui.lang][k]}
 function ld(k){return langData[ui.lang][k]}
 
-var S=null,ui={tab:"home",lang:"ms",ob:{st:0,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""},tm:null,open:null},iv=null;
+var S=null,ui={tab:"home",lang:"ms",ob:{st:-1,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""},tm:null,open:null},iv=null;
 function save(){try{localStorage.setItem(CFG.key,JSON.stringify(S))}catch(e){}}
 function load(){try{ui.lang=localStorage.getItem(CFG.key+"_lang")||"ms"}catch(e){}try{S=JSON.parse(localStorage.getItem(CFG.key))}catch(e){S=null}if(S&&!S.subs)S=null}
 function lvl(){return 1+Math.floor(S.totalXp/100)}
@@ -240,8 +265,8 @@ ld('foods').forEach(function(f){h+='<div class="card"><div class="e">'+f.e+'</di
 h+='</div><h2>'+tt('gr')+'</h2><div class="shop">';
 ld('gear').forEach(function(g){var own=S.pet.own.indexOf(g.id)>-1;h+='<div class="card"><div class="e">'+g.e+'</div><div class="t">'+g.n+'</div>'+(own?'<button class="g" data-a="wear" data-v="'+g.id+'">'+(w==g.id?tt('uwr'):tt('wr'))+'</button>':'<button class="g" data-a="gear" data-v="'+g.id+'"'+(S.xp<g.c?" disabled":"")+'>'+g.c+' XP</button>')+'</div>'});
 return h+'</div><div class="msg">'+tt('pm')+'</div>'}
-function rProg(){var h='<div class="stats"><div class="card"><b>'+streak()+' 🔥</b><span class="m">'+tt('str')+'</span></div><div class="card"><b>'+weekHrs()+'h</b><span class="m">'+tt('wk')+'</span></div><div class="card"><b>Lv '+lvl()+'</b><span class="m">'+S.totalXp+' XP</span></div></div><h2>'+tt('sh')+'</h2>';
-S.subs.forEach(function(s){var op=ui.open==s.k;h+='<div class="card" style="--c:'+col(s.k)+'"><button class="row" data-a="open" data-v="'+s.k+'" style="width:100%;background:none;border:0;color:var(--ink);padding:0;text-align:left"><div style="flex:1"><div class="t">'+emo(s.n)+" "+esc(s.n)+'</div>'+bar(pct(s.k),col(s.k))+'<div class="m" style="margin-top:4px">'+Math.round(S.subjMin[s.k]||0)+' '+tt('mns')+'</div></div><b>'+pct(s.k)+'%</b></button>';
+function rProg(){var h='<div class="stats"><div class="card"><b>'+streak()+' 🔥</b><span class="m">'+tt('str')+'</span></div><div class="card"><b>'+weekHrs()+'</b><span class="m">'+tt('wk')+'</span></div><div class="card"><b>Lv '+lvl()+'</b><span class="m">'+S.totalXp+' XP</span></div></div><h2>'+tt('sh')+'</h2>';
+S.subs.forEach(function(s){var op=ui.open==s.k;h+='<div class="card" style="--c:'+col(s.k)+'"><button class="row" data-a="open" data-v="s'+s.k+'" style="width:100%;background:none;border:0;color:var(--ink);padding:0;text-align:left"><div style="flex:1"><div class="t">'+emo(s.n)+" "+esc(s.n)+'</div>'+bar(pct(s.k),col(s.k))+'<div class="m" style="margin-top:4px">'+Math.round(S.subjMin[s.k]||0)+' '+tt('mns')+'</div></div><b>'+pct(s.k)+'%</b></button>';
 if(op){S.topics[s.k].forEach(function(t,j){h+='<button class="tp" data-a="topic" data-k="'+s.k+'" data-j="'+j+'"><span>'+esc(t[0])+'</span><span class="st s'+t[1]+'">'+tt('stn')[t[1]]+'</span></button>'});
 h+='<div class="add"><input class="in" maxlength="40" placeholder="'+tt('at')+'"><button class="g" data-a="addtopic" data-v="'+s.k+'">'+tt('add')+'</button></div>'}h+='</div>'});
 h+='<h2>'+tt('a14')+'</h2><div class="card"><div class="heat">';var d=new Date();d.setDate(d.getDate()-13);
@@ -258,14 +283,39 @@ return '<div class="top"><h1>'+tb[ui.tab]+'</h1><div style="display:flex;gap:6px
 function pre(){var o=ui.ob;return o.type=="r"?ld('presets').r:(o.lvl<=3?ld('presets').l:ld('presets').u)}
 function has(n){return ui.ob.subs.some(function(s){return s.n==n})}
 function chip(t,on,a,v){return '<button class="oc'+(on?" on":"")+'" data-a="'+a+'" data-v="'+esc(v)+'">'+esc(t)+'</button>'}
-function rOb(){var o=ui.ob,s=o.st,i,l_btn='<button class="oc" style="padding:4px 10px;font-size:12px;position:absolute;right:18px;top:22px;z-index:2" data-a="lang">'+(ui.lang=="ms"?"🇲🇾 BM":"🇬🇧 EN")+'</button>';
-var h='<div class="obin" style="position:relative">'+l_btn+'<div class="dots">';for(i=0;i<5;i++)h+='<i'+(i<=s?' class="on"':"")+'></i>';h+='</div>';
-if(s==0)h+='<h2>'+tt('ob_w')+'</h2><div class="m">'+tt('ob_sub')+'</div><div class="phr"><button class="av" data-a="pic" aria-label="'+tt('p_alt')+'">'+(o.photo?'<img src="'+o.photo+'" alt="">':"📷")+'</button><div class="m">'+tt('p_alt')+'</div></div><label class="m" for="nm">'+tt('nm')+'</label><input id="nm" class="in" maxlength="24" placeholder="'+tt('nm_p')+'" value="'+esc(o.name)+'"><label class="m">'+tt('ty')+'</label><div class="cw">'+chip(tt('ty_r'),o.type=="r","ty","r")+chip(tt('ty_m'),o.type=="m","ty","m")+'</div>';
-else if(s==1){var r=o.type=="r";h+='<h2>'+(r?tt('l_r'):tt('l_m'))+'</h2><div class="cw">';for(i=1;i<=(r?6:5);i++)h+=chip((r?tt('lv_r'):tt('lv_m'))+i,o.lvl==i,"lv",i);h+='</div>'}
-else if(s==2){var pr=pre();h+='<h2>'+tt('sb_t')+'</h2><div class="m">'+tt('sb_s')+'</div><div class="cw">';pr.forEach(function(n){h+=chip(n,has(n),"sub",n)});o.subs.forEach(function(x){if(pr.indexOf(x.n)<0)h+=chip(x.n,true,"sub",x.n)});h+='</div><div class="add"><input id="ns" class="in" maxlength="30" placeholder="'+tt('sb_p')+'"><button class="g" data-a="addsub">'+tt('add')+'</button></div>'}
-else if(s==3){h+='<h2>'+tt('lv_t')+'</h2><div class="m">'+tt('lv_s')+'</div>';o.subs.forEach(function(x,j){h+='<div class="card" style="margin:0"><div class="t">'+emo(x.n)+" "+esc(x.n)+'</div><div class="cw" style="margin-top:6px">'+[tt('lw'),tt('la'),tt('ls')].map(function(t,q){return '<button class="oc'+(x.l==q?" on":"")+'" data-a="lvl" data-i="'+j+'" data-v="'+q+'">'+t+'</button>'}).join("")+'</div></div>'});h+='<label class="m">'+tt('hr_q')+'</label><div class="cw">'+[1,2,3,4].map(function(q){return chip(q+" "+tt('hr'),o.hrs==q,"hr",q)}).join("")+'</div>'}
-else h+='<h2>'+tt('ex_t')+'</h2><div class="cw">'+ld('exams')[o.type].map(function(t){return chip(t,o.ex==t,"ex",t)}).join("")+'</div><label class="m" for="dt">'+tt('dt')+'</label><input id="dt" type="date" class="in" value="'+o.date+'"><div class="m">'+tt('dt_s')+'</div>';
-return h+'<div class="obf">'+(s>0?'<button class="g" data-a="back">'+tt('bk')+'</button>':"")+'<button class="p" data-a="next">'+(s==4?tt('gn'):tt('nx'))+'</button></div></div>'}
+
+/* ===== SPLASH SCREEN & ONBOARDING ===== */
+function rSplash(){
+  var l_btn='<button class="lang-toggle-splash" data-a="lang">'+(ui.lang=="ms"?"🇲🇾 BM":"🇬🇧 EN")+'</button>';
+  return '<div class="splash">' + l_btn +
+    '<div class="brand-group">' +
+      '<div class="mascots">' +
+        '<span class="mascot-decor m-paw1">🐾</span>' +
+        '<span>🐱</span>' +
+        '<span class="mascot-decor m-heart">❤️</span>' +
+        '<span>🐶</span>' +
+        '<span class="mascot-decor m-books">📚</span>' +
+        '<span class="mascot-decor m-paw2">🐾</span>' +
+        '<span class="mascot-decor m-star">✨</span>' +
+      '</div>' +
+      '<h1 class="logo-text"><span>studypet</span></h1>' +
+      '<div class="logo-desc">Focus • Levels • Companions</div>' +
+    '</div>' +
+    '<button class="btn-started" data-a="getstarted">' + tt('btn_start') + '</button>' +
+  '</div>';
+}
+
+function rOb(){
+  var o=ui.ob,s=o.st,i;
+  if(s == -1) return rSplash();
+  var l_btn='<button class="oc" style="padding:4px 10px;font-size:12px;position:absolute;right:18px;top:22px;z-index:2" data-a="lang">'+(ui.lang=="ms"?"🇲🇾 BM":"🇬🇧 EN")+'</button>';
+  var h='<div class="obin" style="position:relative">'+l_btn+'<div class="dots">';for(i=0;i<5;i++)h+='<i'+(i<=s?' class="on"':"")+'></i>';h+='</div>';
+  if(s==0)h+='<h2>'+tt('ob_w')+'</h2><div class="m">'+tt('ob_sub')+'</div><div class="phr"><button class="av" data-a="pic" aria-label="'+tt('p_alt')+'">'+(o.photo?'<img src="'+o.photo+'" alt="">':"📷")+'</button><div class="m">'+tt('p_alt')+'</div></div><label class="m" for="nm">'+tt('nm')+'</label><input id="nm" class="in" maxlength="24" placeholder="'+tt('nm_p')+'" value="'+esc(o.name)+'"><label class="m">'+tt('ty')+'</label><div class="cw">'+chip(tt('ty_r'),o.type=="r","ty","r")+chip(tt('ty_m'),o.type=="m","ty","m")+'</div>';
+  else if(s==1){var r=o.type=="r";h+='<h2>'+(r?tt('l_r'):tt('l_m'))+'</h2><div class="cw">';for(i=1;i<=(r?6:5);i++)h+=chip((r?tt('lv_r'):tt('lv_m'))+i,o.lvl==i,"lv",i);h+='</div>'}
+  else if(s==2){var pr=pre();h+='<h2>'+tt('sb_t')+'</h2><div class="m">'+tt('sb_s')+'</div><div class="cw">';pr.forEach(function(n){h+=chip(n,has(n),"sub",n)});o.subs.forEach(function(x){if(pr.indexOf(x.n)<0)h+=chip(x.n,true,"sub",x.n)});h+='</div><div class="add"><input id="ns" class="in" maxlength="30" placeholder="'+tt('sb_p')+'"><button class="g" data-a="addsub">'+tt('add')+'</button></div>'}
+  else if(s==3){h+='<h2>'+tt('lv_t')+'</h2><div class="m">'+tt('lv_s')+'</div>';o.subs.forEach(function(x,j){h+='<div class="card" style="margin:0"><div class="t">'+emo(x.n)+" "+esc(x.n)+'</div><div class="cw" style="margin-top:6px">'+[tt('w'),tt('a'),tt('s')].map(function(t,q){return '<button class="oc'+(x.l==q?" on":"")+'" data-a="lvl" data-i="'+j+'" data-v="'+q+'">'+t+'</button>'}).join("")+'</div></div>'});h+='<label class="m">'+tt('hr_q')+'</label><div class="cw">'+[1,2,3,4].map(function(q){return chip(q+" "+tt('hr'),o.hrs==q,"hr",q)}).join("")+'</div>'}
+  else h+='<h2>'+tt('ex_t')+'</h2><div class="cw">'+ld('exams')[o.type].map(function(t){return chip(t,o.ex==t,"ex",t)}).join("")+'</div><label class="m" for="dt">'+tt('dt')+'</label><input id="dt" type="date" class="in" value="'+o.date+'"><div class="m">'+tt('dt_s')+'</div>';
+  return h+'<div class="obf">'+(s>0?'<button class="g" data-a="back">'+tt('bk')+'</button>':"")+'<button class="p" data-a="next">'+(s==4?tt('gn'):tt('nx'))+'</button></div></div>'}
 function keep(){var o=ui.ob;if($("nm"))o.name=$("nm").value;if($("dt"))o.date=$("dt").value}
 function nextOb(){var o=ui.ob,s=o.st;
 if(s==0&&(!o.name.trim()||!o.type))return pop(tt('e_n'));
@@ -283,6 +333,7 @@ ui.tab="home";save();render();pop(tt('d_gn'))}
 /* ============ EVENT ============ */
 document.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a,v=b.dataset.v,o=ui.ob;
 if(a=="lang"){ui.lang=ui.lang=="ms"?"en":"ms";try{localStorage.setItem(CFG.key+"_lang",ui.lang)}catch(x){}render();return}
+if(a=="getstarted"){o.st=0;render();return}
 if(!S){keep();
  if(a=="ty"){o.type=v;o.lvl=0;o.subs=[];o.pre=0}
  else if(a=="lv"){if(o.lvl!=+v){o.subs=[];o.pre=0}o.lvl=+v}
@@ -301,10 +352,10 @@ else if(a=="ask"){finish(v);return}
 else if(a=="food"){var f=ld('foods').filter(function(x){return x.id==v})[0];if(S.xp>=f.c){S.xp-=f.c;petTick();S.pet.fed=Math.min(100,S.pet.fed+f.fed);S.pet.joy=Math.min(100,S.pet.joy+f.joy);save();pop(tt('py')+f.e)}}
 else if(a=="gear"){var g=ld('gear').filter(function(x){return x.id==v})[0];if(S.xp>=g.c){S.xp-=g.c;S.pet.own.push(v);S.pet.worn=v;save();pop(tt('pw')+g.n+" "+g.e)}}
 else if(a=="wear"){S.pet.worn=S.pet.worn==v?"":v;save()}
-else if(a=="open"){ui.open=ui.open==v?null:v}
+else if(a=="open"){ui.open=ui.open==("s"+v)?null:"s"+v}
 else if(a=="topic"){var q=S.topics[b.dataset.k][+b.dataset.j];q[1]=(q[1]+1)%3;if(q[1]==2)q[2]=Date.now();save()}
 else if(a=="addtopic"){var i=b.previousElementSibling,n=i.value.trim();if(n){S.topics[v].push([n,0,0]);save()}}
-else if(a=="reset"){if(confirm(tt('cr'))){try{localStorage.removeItem(CFG.key)}catch(x){}S=null;ui.ob={st:0,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""}}}
+else if(a=="reset"){if(confirm(tt('cr'))){try{localStorage.removeItem(CFG.key)}catch(x){}S=null;ui.ob={st:-1,name:"",type:"",lvl:0,subs:[],hrs:2,ex:"",date:"",pre:0,photo:""}}}
 render()});
 document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target.id=="ns"){e.preventDefault();document.querySelector('[data-a="addsub"]').click()}});
 
