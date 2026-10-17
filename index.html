@@ -89,23 +89,28 @@ nav button span{display:block;font-size:20px}nav button.on{color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.pet.bob{animation:none}}
 
 /* ===== LANDING / SPLASH SCREEN ===== */
-.splash{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:60px 24px 80px;text-align:center;background:#12163b}
-.brand-group{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:40px}
-.mascots{display:flex;align-items:flex-end;justify-content:center;gap:10px;position:relative}
-.mascots span{font-size:68px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15))}
-.mascot-decor{position:absolute;font-size:18px}
-.m-heart{top:-12px;left:45%}
-.m-star{top:15px;right:-15px}
-.m-paw1{bottom:5px;left:-25px}
-.m-paw2{bottom:15px;right:-28px}
-.m-books{font-size:32px !important;margin-bottom:10px}
-.logo-text{font-size:52px;font-weight:900;color:#fff;font-family:"Nunito", sans-serif;letter-spacing:-1.5px;text-shadow:0 3px 0 #7c4dff, 0 6px 0 rgba(0,0,0,0.2);margin:0;position:relative}
+/* ===== LANDING / SPLASH SCREEN ===== */
+.splash{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:90px 24px 70px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#262c7a 0%,#161a4a 48%,#0e1130 100%)}
+.splash::before,.splash::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none}
+.splash::before{width:220px;height:220px;background:#7c4dff;top:-60px;left:-70px}
+.splash::after{width:200px;height:200px;background:#3b82f6;bottom:-70px;right:-60px}
+.brand-group{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:60px;animation:rise .7s ease backwards}
+.logo-img{width:min(300px,78vw);height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));animation:float 4s ease-in-out infinite}
+.logo-fallback{display:none;flex-direction:column;align-items:center;gap:12px}
+.mascots{display:flex;gap:10px}.mascots span{font-size:68px;line-height:1}
+.logo-text{font-size:52px;font-weight:900;color:#fff;letter-spacing:-1.5px;text-shadow:0 3px 0 #7c4dff,0 6px 0 rgba(0,0,0,.2);margin:0}
 .logo-text span{display:inline-block;transform:rotate(-3deg)}
-.logo-desc{font-size:14px;color:#9aa2d6;font-weight:700;margin-top:-5px;letter-spacing:1px;text-transform:uppercase}
-.btn-started{background:#d1d5db;color:#000;border:4px solid #000;border-radius:40px;padding:22px 48px;font-size:18px;font-weight:900;width:90%;max-width:320px;box-shadow:0 6px 0 #000;transition:all 0.1s ease;cursor:pointer;letter-spacing:0.5px}
+.logo-desc{font-size:12px;color:#9aa2d6;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.btn-started{position:relative;z-index:1;background:#d9d9d9;color:#000;border:4px solid #000;border-radius:40px;padding:22px 48px;font-size:18px;font-weight:900;width:90%;max-width:320px;box-shadow:0 6px 0 #000;transition:transform .1s,box-shadow .1s;letter-spacing:.5px;animation:rise .7s .25s ease backwards}
+.btn-started:hover{background:#fff}
 .btn-started:active{transform:translateY(4px);box-shadow:0 2px 0 #000}
-.lang-toggle-splash{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;border-radius:99px;padding:6px 14px;font-size:12px;font-weight:800;cursor:pointer;position:absolute;top:20px;right:20px;z-index:10}
-</style>
+.lang-toggle-splash{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);color:#fff;border-radius:99px;padding:6px 14px;font-size:12px;font-weight:800;cursor:pointer;position:absolute;top:20px;right:20px;z-index:2}
+.sp{position:absolute;color:#fff;font-size:16px;opacity:.7;animation:twinkle 3s ease-in-out infinite;pointer-events:none}
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+@keyframes twinkle{50%{opacity:.15;transform:scale(.7)}}
+@media (prefers-reduced-motion:reduce){.logo-img,.brand-group,.btn-started,.sp{animation:none}}</style>
+  
 </head>
 <body>
 <div class="phone" id="app"></div>
